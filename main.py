@@ -1,15 +1,34 @@
 import pyttsx3
 import time
 import PySimpleGUI as sg
-import tkinter
+import threading
 
 
+
+def counter_thread(window):
+    print(event, values)
+    scout = int(values["-scout_in-"])
+    smd_start = int(values["-smd_start_in-"])
+    smd_warning = int(values["-smd_warning_in-"])
+    engine.say("Nuclear Umbrella started...")
+    engine.runAndWait()
+    time.sleep(scout * 60)
+    print(time.time() - start_time)
+    engine.say(str(scout) + " minutes passed: Don't be blind, scout!")
+    engine.runAndWait()
+    time.sleep(smd_start * 60)
+    engine.say(str(smd_start) + " minutes elapsed, reminder: Start to build nuke defense!")
+    engine.runAndWait()
+    time.sleep(smd_start * 60)
+    engine.say(str(smd_start) + " minutes elapsed, reminder: Start to build nuke defense!")
+    engine.runAndWait()
 
 if __name__ == '__main__':
 
     engine = pyttsx3.init()
+    engine.setProperty('rate', 125)
     voices = engine.getProperty('voices')
-    engine.setProperty('voice', voices[1].id)
+    engine.setProperty('voice', voices[0].id)
 
 
     sg.theme('BluePurple')
@@ -25,12 +44,8 @@ if __name__ == '__main__':
 
     while True:  # Event Loop
         event, values = window.read()
-        print(event, values)
-        scout = int(values["-scout_in-"])
-        smd_start = int(values["-smd_start_in-"])
-        smd_warning = int(values["-smd_warning_in-"])
 
-        print(scout)
+
         if event == sg.WIN_CLOSED or event == 'Exit':
             break
         if event == 'Start':
@@ -38,18 +53,7 @@ if __name__ == '__main__':
             #window['-OUTPUT-'].update(values['-IN-'])
 
             start_time =time.time()
+            threading.Thread(target=counter_thread, args=(window,), daemon=True).start()
 
-            engine.say("Nuclear Umbrella started...")
-            engine.runAndWait()
-            time.sleep(scout*60)
-            print(time.time()-start_time)
-            engine.say(str(scout)+" minutes passed: Don't be blind, scout!")
-            engine.runAndWait()
-            time.sleep(smd_start*60)
-            engine.say(str(smd_start)+" minutes elapsed, reminder: Start to build nuke defense!")
-            engine.runAndWait()
-            time.sleep(smd_start * 60)
-            engine.say(str(smd_start) + " minutes elapsed, reminder: Start to build nuke defense!")
-            engine.runAndWait()
 
     window.close()
