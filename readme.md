@@ -3,11 +3,11 @@
 By Markus Bawidamann, December 2020
 This was a little fun project that was finished suprisingly fast, as always, Python surprises positively.
 
-Supreme Commander Trailer:
+**Supreme Commander Trailer:**
 
 https://www.youtube.com/watch?v=YTEK91uEvPo
 
-Forged Alliance Trailer:
+**Forged Alliance Trailer:**
 
 https://www.youtube.com/watch?v=U92Hqv8Y4V4
 
@@ -22,7 +22,7 @@ Pysimplegui was also very nice and I feel we finally have a GUI toolkit in pytho
 a GUI with very little code.
 The main loop runs in another thread in parallel to the thread doing the waiting.
 
-Supreme Commander is now over 14 years old and still going strong. It is a one of a kind game with no rival, the scale of
+Supreme Commander Forged Alliance Forever (the community supported multi player version) is now over 14 years old and still going strong. It is a one of a kind game with no rival, the scale of
 it is still unparalleled, the stratetic zoom is still missing in all other RTSes. The maps are huge, the games epic and 
 the learning curve murderous, only the best players can manage it. 
 It is the antithesis of all casual games.
